@@ -8,7 +8,7 @@ from multiprocessing import Pool
 import basic_gao as basic
 
 
-def run_GCCM_sampling(xMatrix, yMatrix, lib_sizes, E, cores=None, outfile=None):
+def run_GCCM_sampling(xMatrix, yMatrix, lib_sizes, E, cores=None, outfile=None,K = 5):
 
     #print('x_xmap_y')
     x_xmap_y_all, x_xmap_y_results = GCCM(xMatrix, yMatrix, lib_sizes, E, cores=cores)
@@ -24,7 +24,7 @@ def run_GCCM_sampling(xMatrix, yMatrix, lib_sizes, E, cores=None, outfile=None):
     return results
 
 
-def GCCM(sourceMatrix, targetMatrix, lib_sizes, E, cores=None):
+def GCCM(sourceMatrix, targetMatrix, lib_sizes, E, cores=None,K=5):
     totalRow, totalCol = sourceMatrix.shape
     target = targetMatrix.flatten()
 
@@ -48,7 +48,7 @@ def GCCM(sourceMatrix, targetMatrix, lib_sizes, E, cores=None):
 
     if cores is None:
         for lib_size in lib_sizes:
-            xmap = GCCMSingle(embedding, sourceMatrix, target, lib_size, pred_idx, E)
+            xmap = GCCMSingle(embedding, sourceMatrix, target, lib_size, pred_idx, E,K)
             xmap_all = pd.concat([xmap_all, xmap])
             xmap_results[lib_size] = basic.results(xmap, pred_idx)
 
@@ -63,14 +63,14 @@ def GCCM(sourceMatrix, targetMatrix, lib_sizes, E, cores=None):
         
     return xmap_all, xmap_results
 
-def get_xmap(embedding, sourceMatrix, target, lib_size, pred_idx, E):
-    xmap = GCCMSingle(embedding, sourceMatrix, target, lib_size, pred_idx, E)
+def get_xmap(embedding, sourceMatrix, target, lib_size, pred_idx, E,K = 5):
+    xmap = GCCMSingle(embedding, sourceMatrix, target, lib_size, pred_idx, E,K)
     
     return xmap, lib_size
 
 
-def GCCMSingle(embedding, sourceMatrix, target, lib_size, pred_idx, E):
-    K = 50 # number of repetitions of supsampling
+def GCCMSingle(embedding, sourceMatrix, target, lib_size, pred_idx, E,K = 5):
+    # number of repetitions of supsampling
     xmap = pd.DataFrame()
 
     # sliding library window
@@ -83,7 +83,7 @@ def GCCMSingle(embedding, sourceMatrix, target, lib_size, pred_idx, E):
             pred, stats = projection(embedding, target, lib_idx, lib_size, pred_idx, E)
             xmap = pd.concat([xmap, pd.DataFrame([{'L': lib_size, 'rho': stats['rho']}])], ignore_index=True)
         else:
-            print('skipped', r, c)
+            print('skipped') #print('skipped', r, c)
 
     return xmap
 
