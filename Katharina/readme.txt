@@ -12,9 +12,9 @@ The  ./periodicity/ folder contains codes with python languge to test the period
 
 
 ***4***
-The  ./rTrend/folder contains results of improved version of  GCCM of  Katharina et al,  with the linear trends removed for the aligned heavy metal data. The ./rTrend/differentK/ contains the results with different K parameter, the file names  end with K=5 are results of ./alignedDataK=5.py, and file names  end with K=50 are results alignedDataK=50.py
+The  ./rTrend/folder contains results of improved version of  GCCM of  Katharina et al,  with the linear trends removed for the aligned heavy metal data. The ./rTrend/differentK/ contains the results with different K parameter(number of repetitions of supsampling), the file names  end with K=5 are results by setting K=5 (the same as Katharina et al), and and file names  end with K=50 are results by setting to make the results more stable .
 *******
 
 ***4***
-The ./alignedData.py,alignedDataK=5.py,alignedDataK=50.py are codes of improved version of  GCCM of  Katharina et al,with the linear trends removed for the aligned heavy metal data. The alignedData.py use the default
+The ./alignedDataK=5.py contains codes of improved version of  GCCM of  Katharina et al,with the linear trends removed for the aligned heavy metal data. The alignedData.py use the default
 
