@@ -1,1 +1,1 @@
-
+contains codes of the GCCM published with the original paper with R language, but revised to run the new adligned data set. With ./GCCM/all/ contains  codes for isotropic case, and ./GCCM/nw/. contains  codes for anisotropic case.  ./originalGCCM/results/  contains corresponding results. 
