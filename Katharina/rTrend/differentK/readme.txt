@@ -1,0 +1,1 @@
+contains the results with different K parameter(number of repetitions of supsampling), the file names  end with K=5 are results by setting K=5 (the same as Katharina et al), and and file names  end with K=50 are results by setting to make the results more stable .
