@@ -1,1 +1,1 @@
-Output of codes
+contains results of the so called "improved version of  GCCM" by  Katharina et al,  with the linear trends removed for the aligned heavy metal data. The ./rTrend/differentK/ contains the results with different K parameter(number of repetitions of supsampling), the file names  end with K=5 are results by setting K=5 (the same as Katharina et al), and and file names  end with K=50 are results by setting to make the results more stable .
