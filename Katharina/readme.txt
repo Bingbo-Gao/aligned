@@ -8,3 +8,13 @@ The  ./originalGCCM/ folder contains codes of the GCCM published with the origin
 
 ***3***
 The  ./periodicity/ folder contains codes with python languge to test the periodicity in the simulated case of Katharina et al (the second case) 
+*******
+
+
+***4***
+The  ./rTrend/folder contains results of improved version of  GCCM of  Katharina et al,  with the linear trends removed for the aligned heavy metal data. The ./rTrend/differentK/ contains the results with different K parameter, the file names  end with K=5 are results of ./alignedDataK=5.py, and file names  end with K=50 are results alignedDataK=50.py
+*******
+
+***4***
+The ./alignedData.py,alignedDataK=5.py,alignedDataK=50.py are codes of improved version of  GCCM of  Katharina et al,with the linear trends removed for the aligned heavy metal data. The alignedData.py use the default
+
